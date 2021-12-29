@@ -38,21 +38,15 @@ class CSRN(nn.Module):
         x = self.sub_mean(x)
         x = self.entry1(x.view(-1, 1, *x.shape[2:]))
 
-        #d = self.entry1.weight.data.view(-1).cpu().numpy()
-        # fig, axs = plt.subplots(1, 1, tight_layout=True)
-        # axs.hist(d, bins=100, alpha=1, histtype='step')
-        # plt.show()
-        #d = print(torch.var(self.entry1.weight.data.view(-1).cpu()))
-
-        b1, a1, a2 = self.b1(x)
-        b2, _, _ = self.b2(b1)
-        b3, _, _ = self.b3(b2)
-        b4, _, _ = self.b4(b3)
+        b1 = self.b1(x)
+        b2 = self.b2(b1)
+        b3 = self.b3(b2)
+        b4 = self.b4(b3)
 
         out = self.out_red(torch.cat([b1, b2, b3, b4], dim=1))
         out = self.upsample(out + x)
         out = self.add_mean(out.view(-1, 3, *out.shape[2:]))
-        return out, a1.mean(dim=1).mean(dim=0), a2.mean(dim=1).mean(dim=0)
+        return out
     #
     # def load_state_dict(self, state_dict, strict=False):
     #     own_state = self.state_dict()
