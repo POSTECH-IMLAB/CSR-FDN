@@ -27,7 +27,7 @@ This is an official implementation of Accurate Lightweight Super-Resolution by C
 * Python packages: pip3 install numpy opencv-python tqdm scikit-image Pillow
 
 ## Pretrained Weights
-
+Pretrained weights are saved in code/experiment/CSR_FDN/
 
 ## Dataset Preparation
 We use [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) as our training datasets. 
