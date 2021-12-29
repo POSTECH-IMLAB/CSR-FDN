@@ -2,7 +2,7 @@
 
 This is an official implementation of Accurate Lightweight Super-Resolution by Color Separation and Feature Decomposition.
 
-Paper : https://drive.google.com/file/d/1Fu0VJDdj-OrCMYPfR1ucGrJTT9sDhZaY/view?usp=sharing
+Paper URL : https://drive.google.com/file/d/1Fu0VJDdj-OrCMYPfR1ucGrJTT9sDhZaY/view?usp=sharing
 
 
 ## Abstract
