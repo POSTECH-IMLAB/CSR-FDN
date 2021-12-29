@@ -34,15 +34,18 @@ We use [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) as our training datase
 
 For evaluation, we use four datasets, i.e., [Set5](https://uofi.box.com/shared/static/kfahv87nfe8ax910l85dksyl2q212voc.zip), [Set14](https://uofi.box.com/shared/static/igsnfieh4lz68l926l8xbklwsnnk8we9.zip), [Urban100](https://uofi.box.com/shared/static/65upg43jjd0a4cwsiqgl6o6ixube6klm.zip), [BSD100](https://uofi.box.com/shared/static/qgctsplb8txrksm9to9x01zfa4m61ngq.zip).
 
+## Demo
+```bash
+python3 code/demo.py
+```
 
 ## Train
-
 For single GPU:
 ```bash
-python3 code/mian_train.py
+python3 code/main_train.py
 ```
 
 ## Test
 ```bash
-python3 inference.py -input_dir=/path/to/real/images/ -output_dir=/path/to/save/sr/results/
+python3 code/main_test.py
 ```
