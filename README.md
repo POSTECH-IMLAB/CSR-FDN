@@ -32,12 +32,16 @@ python3 code/demo.py
 ```
 
 ## Train
-For single GPU:
+See option.py for hyperparameter configuration
 ```bash
 python3 code/main_train.py
 ```
 
 ## Test
+See option.py for hyperparameter configuration
 ```bash
 python3 code/main_test.py
 ```
+
+## Hyperparameter
+For batch training, 16 LR images are used and cropped to a size of 32$\times$32 in a mini-batch. For data augmentation, training images are randomly rotated within 0, 90, 180, 270 degrees and also randomly flipped. We use Adam~\cite{kingma2014adam} optimizer for training with $\beta_{1}=0.9$, $\beta_{2}=0.999$, and $\epsilon=1\times10^{-8}$. The initial learning rate is set to $2\times10^{-4}$ and decreased by half every $2\times10^5$ iterations. 
