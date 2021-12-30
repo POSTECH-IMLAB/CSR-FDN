@@ -16,7 +16,7 @@ In lightweight super-resolution (SR) task, it is important to utilize a network 
 * python3
 * pytorch >= 1.6
 * CUDA = 10.2
-* Python packages: pip3 install numpy opencv-python tqdm scikit-image Pillow matplotlib scipy imageio
+* Python packages: pip3 install numpy opencv-python tqdm scikit-image Pillow matplotlib scipy imageio ptflops
 
 ## Pretrained Weights
 Pretrained weights are saved in code/experiment/CSR_FDN/
