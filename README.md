@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 # CSR-FDN
 
 This is an official implementation of Accurate Lightweight Super-Resolution by Color Separation and Feature Decomposition.
