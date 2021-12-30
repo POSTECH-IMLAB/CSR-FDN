@@ -7,6 +7,7 @@ import loss
 import utility
 from option import args
 from PIL import Image
+import time
 
 class ImageLoader:
     def __init__(self, root):
@@ -45,6 +46,7 @@ if __name__ == '__main__':
     torch.manual_seed(args.seed)
     os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
+    #path = args.dir_demo
     path = './demo'
     args.scale = [3]
     scale = str(args.scale[0])
@@ -52,10 +54,12 @@ if __name__ == '__main__':
     dataloader = ImageLoader(path)
     ckpt = utility.checkpoint(args)
     model = model.Model(args, ckpt)
-    print(args.pre_train)
+
+    t = 0
     for img, filename in dataloader:
+        tt = time.time()
         sr = model(img)
         sr = utility.quantize(sr, 255)
         save_results(filename, sr, scale)
-
-    save_list = [sr]
+        t += time.time()-tt
+    print('Total inference : {}s'.format(t))
