@@ -42,3 +42,52 @@ See option.py for hyperparameter configuration
 ```bash
 python3 code/main_test.py
 ```
+
+## Argument in option.py
+```
+optional arguments:
+  --debug		                Enables debug mode
+  --template		TEMPLATE   	You can set various templates in option.py
+  --n_threads 		N_THREADS	number of threads for data loading
+  --cpu			CPU		use cpu only
+  --n_GPUs		N_GPUS		number of GPUs
+  --seed		SEED		random seed
+  --dir_data		DIR_DATA   	dataset directory
+  --dir_demo 		DIR_DEMO   	demo image directory
+  --data_train 		DATA_TRAIN	train dataset name
+  --data_test 		DATA_TEST	test dataset name
+  --n_train 		N_TRAIN     	number of training set
+  --n_val		N_VAL		number of validation set
+  --offset_val 		OFFSET_VAL	validation index offest
+  --ext			EXT		dataset file extension
+  --scale 		SCALE           super resolution scale
+  --patch_size 		PATCH_SIZE	input patch size
+  --rgb_range 		RGB_RANGE	maximum value of RGB
+  --n_colors 		N_COLORS   	number of color channels to use
+  --model 		MODEL      	model name
+  --pre_train 		PRE_TRAIN	pre-trained model path
+  --precision 		{single,half}	FP precision for test (single | half)
+  --reset        	 		reset the training
+  --test_every 		TEST_EVERY	do test per every N batches
+  --epochs 		EPOCHS          number of epochs to train
+  --batch_size 		BATCH_SIZE	input batch size for training
+  --split_batch 	SPLIT_BATCH	split the batch into smaller chunks
+  --self_ensemble       		use self-ensemble method for test
+  --test_only 		TEST_ONLY	set this option to test the model
+  --lr 		        LR              learning rate
+  --lr_decay 		LR_DECAY  	learning rate decay per N epochs
+  --decay_type 		DECAY_TYPE	learning rate decay type
+  --gamma 		GAMMA           learning rate decay factor for step decay
+  --weight_decay 	WEIGHT_DECAY	weight decay
+  --loss 		LOSS           	loss function configuration
+  --save 		SAVE           	file name to save
+  --load 		LOAD           	file name to load
+  --print_model         		print model
+  --save_models        			save all intermediate models
+  --print_every 	PRINT_EVERY	how many batches to wait before logging training status
+  --save_results 	SAVE_RESULTS	save output results
+  --testpath 		TESTPATH   	dataset directory for testing
+  --testset 		TESTSET     	dataset name for testing
+  --start_epoch 	START_EPOCH	resume from the snapshot, and the start_epoch
+  --no_augment 		NO_AUGMENT	do not use data augmentation
+```
