@@ -21,10 +21,6 @@ In lightweight super-resolution (SR) task, it is important to utilize a network 
 ## Pretrained Weights
 Pretrained weights are saved in code/experiment/CSR_FDN/
 
-## Implementation Details
-Batch size : 16 
-Data augmentation : randomly rotation within 0, 90, 180, 270 degrees and also randomly flipped. We use Adam optimizer for training with \beta_{1}=0.9, $\beta_2=0.999$, and $\epsilon=1\times10^{-8}$. The initial learning rate is set to $2\times10^{-4}$ and decreased by half every $2\times10^5$ iterations. 
-
 ## Dataset Preparation
 We use [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) as our training datasets. 
 
