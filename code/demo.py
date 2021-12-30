@@ -14,6 +14,8 @@ class ImageLoader:
         if os.path.isdir(root):
             self.images = [os.path.join(root, f) for f in os.listdir(root) if
                            f.lower().endswith(('.jpg', '.png', '.jpeg'))]
+            self.fname = [f for f in os.listdir(root) if
+                           f.lower().endswith(('.jpg', '.png', '.jpeg'))]
 
         elif os.path.isfile(root):
             self.images = [root]
@@ -28,7 +30,7 @@ class ImageLoader:
             raise StopIteration
         image = Image.open(self.images[self.index]).convert('RGB')
         img = torch.tensor(np.array(image)).permute(2, 0, 1).unsqueeze(0).float().cuda()
-        fname = self.images[self.index]
+        fname = self.fname[self.index]
         self.index += 1
         return img, fname
 
@@ -36,11 +38,12 @@ class ImageLoader:
         return self.size
 
 def save_results(filename, sr, scale):
-    if not os.path.exists(path):
-        os.makedirs(path)
+    save_path = './demo/SRx{}'.format(scale)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
     ndarr = sr[0].byte().permute(1, 2, 0).cpu().numpy()
     im = Image.fromarray(ndarr, 'RGB')
-    im.save('{}x{}.png'.format(filename[:-4], scale))
+    im.save('{}/{}.png'.format(save_path, filename[:-4]))
 
 if __name__ == '__main__':
     torch.manual_seed(args.seed)
