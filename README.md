@@ -32,13 +32,13 @@ python3 code/demo.py
 ```
 
 ## Train
-See option.py for hyperparameter configuration
+See option.py for default hyperparameter configuration
 ```bash
 python3 code/main_train.py
 ```
 
 ## Test
-See option.py for hyperparameter configuration
+See option.py for default hyperparameter configuration
 ```bash
 python3 code/main_test.py
 ```
