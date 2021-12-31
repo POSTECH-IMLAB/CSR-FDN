@@ -11,8 +11,12 @@ In lightweight super-resolution (SR) task, it is important to utilize a network 
 
 ## Network architecture
 <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/fdn.JPG" width="400" height="400" align="middle"/> <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/csr-fdn.JPG" width="450" height="400" align="middle"/>
-## Dependenices
 
+## Quantitative results
+
+## Qualitative results
+
+## Dependenices
 * python3
 * pytorch >= 1.6 (conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch)
 * CUDA = 10.2
