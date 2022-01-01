@@ -76,7 +76,7 @@ if __name__ == '__main__':
         sr, a1, a2 = model(img)
         sr = utility.quantize(sr, 255)
         save_results(filename, sr, scale)
-        save_attn_map(filename, a1, scale, 'F')
-        save_attn_map(filename, a2, scale, 'S')
+        save_attn_map(filename, a1, scale, 'S')
+        save_attn_map(filename, a2, scale, 'F')
         t += time.time()-tt
     print('Total inference : {}s'.format(t))
