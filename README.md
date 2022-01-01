@@ -11,12 +11,16 @@ In lightweight super-resolution (SR) task, it is important to utilize a network 
 
 ## Network architecture
 <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/fdn.JPG" width="400" height="400" align="middle"/> <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/csr-fdn.JPG" width="450" height="400" align="middle"/>
-## Dependenices
 
+## Quantitative results
+
+## Qualitative results
+
+## Dependenices
 * python3
-* pytorch >= 1.6
+* pytorch >= 1.6 (conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch)
 * CUDA = 10.2
-* Python packages: pip3 install numpy opencv-python tqdm scikit-image Pillow matplotlib scipy imageio
+* Python packages: pip3 install numpy opencv-python tqdm scikit-image Pillow matplotlib scipy imageio ptflops
 
 ## Pretrained Weights
 Pretrained weights are saved in code/experiment/CSR_FDN/
@@ -32,13 +36,13 @@ python3 code/demo.py
 ```
 
 ## Train
-See option.py for hyperparameter configuration
+See option.py for default hyperparameter configuration
 ```bash
 python3 code/main_train.py
 ```
 
 ## Test
-See option.py for hyperparameter configuration
+See option.py for default hyperparameter configuration
 ```bash
 python3 code/main_test.py
 ```
