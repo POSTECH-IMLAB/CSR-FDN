@@ -13,7 +13,7 @@ In lightweight super-resolution (SR) task, it is important to utilize a network 
 <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/fdn.JPG" width="400" height="400" align="middle"/> <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/csr-fdn.JPG" width="450" height="400" align="middle"/>
 
 ## Quantitative results
-<img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/quantitiative.PNG" width="800" height="500" align="middle"/>
+<img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/quantitiative.JPG" width="800" height="500" align="middle"/>
 
 ## Qualitative results
 <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/qualitative.PNG" width="800" height="500" align="middle"/>
