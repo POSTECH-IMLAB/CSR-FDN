@@ -11,7 +11,7 @@ class Benchmark(srdata.SRData):
         list_lr = []
 
         for i in range(0, int(len(os.listdir(self.dir_hr)))):
-            filename = 'img_{:0>3}_SRF'.format(i+1, self.args.scale[0])
+            filename = 'img_{:0>3}_SRF'.format(i+1, self.args.scale)
             list_hr.append(os.path.join(self.dir_hr, filename + '_4_HR' + self.ext))
             list_lr.append(os.path.join(self.dir_lr, filename + self.ext))
 
@@ -23,5 +23,5 @@ class Benchmark(srdata.SRData):
     def _set_filesystem(self, dir_data):
         self.apath = os.path.join(dir_data, 'benchmark', self.args.data_test)
         self.dir_hr = os.path.join(self.apath, 'HR')
-        self.dir_lr = os.path.join(self.apath, 'LR_bicubic', 'X{}'.format(self.args.scale[0]))
+        self.dir_lr = os.path.join(self.apath, 'LR_bicubic', 'X{}'.format(self.args.scale))
         self.ext = '.png'

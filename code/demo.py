@@ -37,6 +37,17 @@ class ImageLoader:
     def __len__(self):
         return self.size
 
+def save_attn_map(filename, at, scale, postfix):
+    save_path = './demo/SRx{}'.format(scale)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+    a = at.mean(dim=0)
+    a = (a>0.5).float()*255
+    ndarr = a.byte().cpu().numpy()
+    im = Image.fromarray(ndarr, 'L')
+    im.save('{}/{}_{}.png'.format(save_path, filename[:-4], postfix))
+
+
 def save_results(filename, sr, scale):
     save_path = './demo/SRx{}'.format(scale)
     if not os.path.exists(save_path):
@@ -51,8 +62,9 @@ if __name__ == '__main__':
 
     #path = args.dir_demo
     path = './demo'
-    args.scale = [3]
-    scale = str(args.scale[0])
+    #args.scale = [3]
+    args.model = 'CSR_FDN_DEMO'
+    scale = str(args.scale)
     args.pre_train = 'experiment/CSR_FDN/csr_fdnx'+scale+'.pt'
     dataloader = ImageLoader(path)
     ckpt = utility.checkpoint(args)
@@ -61,8 +73,10 @@ if __name__ == '__main__':
     t = 0
     for img, filename in dataloader:
         tt = time.time()
-        sr = model(img)
+        sr, a1, a2 = model(img)
         sr = utility.quantize(sr, 255)
         save_results(filename, sr, scale)
+        save_attn_map(filename, a1, scale, 'F')
+        save_attn_map(filename, a2, scale, 'S')
         t += time.time()-tt
     print('Total inference : {}s'.format(t))

@@ -13,7 +13,7 @@ if __name__ == '__main__':
     torch.manual_seed(args.seed)
     os.environ['CUDA_VISIBLE_DEVICES'] = "1"
     args.test_only = True
-    args.data_test = 'Set5'  # specify dataset for test.
+    #args.data_test = 'Set5'  # specify dataset for test.
     args.save_results = True
     loader = data.Data(args)
     ckpt = utility.checkpoint(args)

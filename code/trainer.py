@@ -174,7 +174,7 @@ class Trainer():
         return F.conv2d(img, weights)
 
     def chop(self, x, shave=8):
-        scale = self.scale[0]
+        scale = self.scale
         b, c, h, w = x.size()
         h_half, w_half = h // 2, w // 2
         h_size, w_size = h_half + shave, w_half + shave

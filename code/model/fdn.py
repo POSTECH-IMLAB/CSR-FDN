@@ -35,15 +35,15 @@ class CSRN(nn.Module):
         x = self.sub_mean(x)
         x1 = self.entry1(x)
 
-        b1 = self.b1(x1)
-        b2 = self.b2(b1)
-        b3 = self.b3(b2)
-        b4 = self.b4(b3)
+        b1, a1, a2 = self.b1(x1)
+        b2, _, _ = self.b2(b1)
+        b3, _, _ = self.b3(b2)
+        b4, _, _ = self.b4(b3)
 
         out = self.out_red(torch.cat([b1, b2, b3, b4], dim=1))
         out = self.upsample(out + x1)
         out = self.add_mean(out.view(-1, 3, *out.shape[2:]))
-        return out.view(-1, 3, *out.shape[2:])
+        return out.view(-1, 3, *out.shape[2:]), a1, a2
 
     # def load_state_dict(self, state_dict, strict=False):
     #     own_state = self.state_dict()

@@ -1,0 +1,5 @@
+
+Evaluation:
+[Set5 x4]	PSNR: 32.37 SSIM: 0.8970 (Best: 32.366 @epoch 1)
+Total time: 1.77s
+

@@ -84,7 +84,7 @@ class AFD(nn.Module):
         b, r = torch.split(x, (self.ch // 2, self.ch // 2), dim=1)
         out = b * atmap
         res = r * (1 - atmap)
-        return out, res
+        return out, res, atmap, (1-atmap)
 
 class Block_Last(nn.Module):
     def __init__(self, n_feat):
@@ -104,20 +104,20 @@ class Block_Last(nn.Module):
         self.cv_out = conv(n_feat * 2 + n_feat // 2, n_feat, 1)
 
     def forward(self, x):
-        b01, b02 = self.cs0(x)
+        b01, b02, a1, a2 = self.cs0(x)
         b0 = self.b0(b01)
 
-        b11, b12 = self.cs1(torch.cat([b0, b01], dim=1))
+        b11, b12, _, _ = self.cs1(torch.cat([b0, b01], dim=1))
         b1 = self.b1(b11)
 
-        b21, b22 = self.cs2(torch.cat([b1, b11], dim=1))
+        b21, b22, _, _ = self.cs2(torch.cat([b1, b11], dim=1))
         b2 = self.b2(b21)
 
-        b31, b32 = self.cs3(torch.cat([b2, b21], dim=1))
+        b31, b32, _, _ = self.cs3(torch.cat([b2, b21], dim=1))
         b3 = self.b3(b31)
 
         out = self.cv_out(torch.cat([b02, b12, b22, b32, b3], dim=1))
-        return out + x
+        return out + x, a1, a2
 
 class Block(nn.Module):
     def __init__(self, n_feat):
@@ -127,9 +127,9 @@ class Block(nn.Module):
         self.ccf = CCFLayer(n_feat)
 
     def forward(self, x):
-        out = self.b(x)
+        out, a1, a2 = self.b(x)
         out = self.ccf(out)
-        return out
+        return out, a1, a2
 
 class Upsampler(nn.Sequential):
     def __init__(self, conv, scale, n_feat, out_f, bias=True):

@@ -21,7 +21,7 @@ class SRData(data.Dataset):
 
         def _load_bin():
             self.images_hr = np.load(self._name_hrbin())
-            self.images_lr = np.load(self._name_lrbin(self.scale[0]))
+            self.images_lr = np.load(self._name_lrbin(self.scale))
 
         if args.ext == 'img' or benchmark:
             self.images_hr, self.images_lr = self._scan()
@@ -63,7 +63,7 @@ class SRData(data.Dataset):
                 np.save(self._name_hrbin(), hr, allow_pickle=True)
                 del hr
                 lr_scale = [Image.open(f) for f in list_lr]
-                np.save(self._name_lrbin(self.scale[0]), lr_scale, allow_pickle=True)
+                np.save(self._name_lrbin(self.scale), lr_scale, allow_pickle=True)
                 del lr_scale
                 _load_bin()
         else:
