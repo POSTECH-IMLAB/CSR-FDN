@@ -14,8 +14,10 @@ In lightweight super-resolution (SR) task, it is important to utilize a network 
 
 ## Quantitative results
 <img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/quantitative.PNG" width="400" height="400" align="middle"/>
+
 ## Qualitative results
-<img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/qualitative.PNG" width="400" height="400" align="middle"/>
+<img src="https://github.com/POSTECH-IMLAB/CSR-FDN/blob/main/fig/qualitative.PNG" width="400" height="200" align="middle"/>
+
 ## Dependenices
 * python3
 * pytorch >= 1.6 (conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch)
