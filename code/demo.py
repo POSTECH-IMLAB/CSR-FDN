@@ -64,7 +64,7 @@ if __name__ == '__main__':
     path = './demo'
     #args.scale = [3]
     args.model = 'CSR_FDN_DEMO'
-    scale = str(args.scale)
+    scale = args.scale[0]
     args.pre_train = 'experiment/CSR_FDN/csr_fdnx'+scale+'.pt'
     dataloader = ImageLoader(path)
     ckpt = utility.checkpoint(args)
